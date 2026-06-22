@@ -1,4 +1,4 @@
-import { YoutubeTranscript } from 'youtube-transcript';
+import { YouTubeTranscriptApi } from '@hallelx/youtube-transcript';
 
 /**
  * Extract the video ID from various YouTube URL formats.
@@ -54,7 +54,8 @@ export async function fetchTranscript(url) {
     throw new Error('Invalid YouTube URL — could not extract video ID');
   }
 
-  const segments = await YoutubeTranscript.fetchTranscript(videoId);
+  const api = new YouTubeTranscriptApi();
+  const segments = await api.fetch(videoId);
 
   if (!segments || segments.length === 0) {
     throw new Error('No transcript available for this video');
