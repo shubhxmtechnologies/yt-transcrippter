@@ -30,7 +30,7 @@ export interface SessionSummary {
 
 // ─── API Base ───
 
-const API_BASE = import.meta.env.ENVIRONMENT == "development" ? '/api' : import.meta.env.API_URL
+const API_BASE = import.meta.env.VITE_ENVIRONMENT == "development" ? '/api' : import.meta.env.VITE_API_URL
 
 // ─── Helpers ───
 
